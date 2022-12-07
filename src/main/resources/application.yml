@@ -1,5 +1,19 @@
+MYSQL_HOST: localhost
+
 server:
   port: 8081
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/collection_SIT
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 report:
   store-path: C:\Users\Dell\src\batch-engine
