@@ -1,0 +1,5 @@
+server:
+  port: 8081
+
+report:
+  store-path: C:\Users\Dell\src\batch-engine
