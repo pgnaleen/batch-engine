@@ -46,7 +46,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
 
         Row row = sheet.createRow(1);
         Cell cell = row.createCell(0);
-        cell.setCellValue("John Smith");
+        cell.setCellValue("The g3nius");
 
         cell = row.createCell(1);
         cell.setCellValue(20);
