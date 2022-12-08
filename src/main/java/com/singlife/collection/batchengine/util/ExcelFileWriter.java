@@ -2,6 +2,8 @@ package com.singlife.collection.batchengine.util;
 
 import com.singlife.collection.batchengine.config.Constants;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,6 +14,7 @@ import java.util.Date;
 
 public class ExcelFileWriter {
 
+    private static Logger logger = LoggerFactory.getLogger(ExcelFileWriter.class);
     private static final SimpleDateFormat reportDateFormat = new SimpleDateFormat(Constants.REPORT_DATE_FORMAT);
 
     public static void writeExcelFile(Workbook workbook, String folderPath) {
@@ -26,6 +29,7 @@ public class ExcelFileWriter {
             workbook.write(outputStream);
             workbook.close();
         } catch (IOException ex) {
+            logger.info(ex.toString());
             throw new RuntimeException(Constants.FILE_WRITING_ERROR);
         }
     }
