@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.singlife.collection</groupId>
-	<artifactId>batch-engine</artifactId>
+	<artifactId>report-engine</artifactId>
 	<version>1.0.0</version>
-	<name>batch-engine</name>
-	<description>running pay now batch tasks</description>
+	<name>report-engine</name>
+	<description>running pay now report generation tasks</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
