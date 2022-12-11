@@ -1,9 +1,10 @@
+CREATE DATABASE collection_SIT;
 use collection_SIT;
 
 -- collection_SIT.collection_transaction definition
 
 CREATE TABLE `collection_transaction` (
-                                          `id` int(11) NOT NULL,
+                                          `id` int(11) NOT NULL auto_increment,
                                           `requester_ref_no` varchar(35) NOT NULL,
                                           `transaction_mode` varchar(20) NOT NULL,
                                           `collection_trn_ref_no` varchar(35) NOT NULL,
@@ -27,7 +28,7 @@ CREATE TABLE `collection_transaction` (
 -- collection_SIT.vendor_inward_credit_notification definition
 
 CREATE TABLE `vendor_inward_credit_notification` (
-                                                     `id` int(11) NOT NULL,
+                                                     `id` int(11) NOT NULL auto_increment,
                                                      `collection_trn_id` int(11) NOT NULL,
                                                      `msg_id` varchar(35) NOT NULL,
                                                      `org_id` varchar(12) NOT NULL,
@@ -80,7 +81,7 @@ CREATE TABLE `vendor_inward_credit_notification` (
 -- collection_SIT.product_transaction definition
 
 CREATE TABLE `product_transaction` (
-                                       `id` int(11) NOT NULL,
+                                       `id` int(11) NOT NULL auto_increment,
                                        `collection_trn_id` int(11) NOT NULL,
                                        `prod_id` varchar(20) NOT NULL COMMENT 'Ex: policy_no',
                                        `prod_cd` varchar(20) NOT NULL COMMENT 'Ex:',
@@ -103,7 +104,7 @@ CREATE TABLE `product_transaction` (
 -- collection_SIT.cust_info definition
 
 CREATE TABLE `cust_info` (
-                             `id` int(11) NOT NULL,
+                             `id` int(11) NOT NULL auto_increment,
                              `doc_id` varchar(20) NOT NULL,
                              `doc_type` varchar(20) NOT NULL,
                              `doc_no` varchar(20) NOT NULL,
@@ -132,7 +133,7 @@ CREATE TABLE `cust_info` (
 -- collection_SIT.notification_template definition
 
 CREATE TABLE `notification_template` (
-                                         `id` int(11) NOT NULL,
+                                         `id` int(11) NOT NULL auto_increment,
                                          `notification_id` int(20) NOT NULL,
                                          `template_id` varchar(10) NOT NULL,
                                          `template_nm` varchar(10) NOT NULL,
@@ -148,7 +149,7 @@ CREATE TABLE `notification_template` (
 -- collection_SIT.notification definition
 
 CREATE TABLE `notification` (
-                                `id` int(11) NOT NULL,
+                                `id` int(11) NOT NULL auto_increment,
                                 `collection_trn_id` int(11) NOT NULL,
                                 `vendor_inward_credit_notification_id` int(11) NOT NULL,
                                 `cust_info_id` int(11) NOT NULL,

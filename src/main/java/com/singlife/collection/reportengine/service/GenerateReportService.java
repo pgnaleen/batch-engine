@@ -1,4 +1,4 @@
-package com.singlife.collection.batchengine.service;
+package com.singlife.collection.reportengine.service;
 
 public interface GenerateReportService {
     void generateReport();

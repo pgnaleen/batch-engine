@@ -1,12 +1,24 @@
-package com.singlife.collection.batchengine.entity;
+package com.singlife.collection.reportengine.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Basic;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "cust_info")
 public class CustInfo {

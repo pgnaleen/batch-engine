@@ -1,6 +1,6 @@
-package com.singlife.collection.batchengine.controller;
+package com.singlife.collection.reportengine.controller;
 
-import com.singlife.collection.batchengine.service.GenerateReportService;
+import com.singlife.collection.reportengine.service.GenerateReportService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
