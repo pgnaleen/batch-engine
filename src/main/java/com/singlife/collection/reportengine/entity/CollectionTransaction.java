@@ -78,6 +78,12 @@ public class CollectionTransaction {
     @Basic
     @Column(name = "version")
     private int version;
+    @Basic
+    @Column(name = "transaction_type")
+    private String transactionType;
+    @Basic
+    @Column(name = "transaction_ccy")
+    private String transactionCcy;
 
     @Override
     public boolean equals(Object o) {

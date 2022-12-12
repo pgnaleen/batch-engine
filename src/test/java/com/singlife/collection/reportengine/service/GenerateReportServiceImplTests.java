@@ -65,11 +65,13 @@ class GenerateReportServiceImplTests {
 				"rcn",
 				"rca",
 				"ma",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				1
+				1,
+				"tty",
+				"ccy"
 		);
 	}
 
@@ -85,9 +87,9 @@ class GenerateReportServiceImplTests {
 				"pas_sys_id",
 				1,
 				"policy desc",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
 				1
 		);
@@ -135,9 +137,9 @@ class GenerateReportServiceImplTests {
 				"proprietaryData",
 				2,
 				2,
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
 				1
 		);
@@ -146,9 +148,9 @@ class GenerateReportServiceImplTests {
 				1,
 				"dt",
 				"dn",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
 				1
 		);
@@ -159,9 +161,9 @@ class GenerateReportServiceImplTests {
 				"templateId",
 				"templateNm",
 				"temTy",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
 				1
 		);
@@ -174,9 +176,9 @@ class GenerateReportServiceImplTests {
 				notificationTemplate,
 				"statusCd",
 				"statsCdV",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
-				null,
+				new Timestamp(90, 8, 28, 1,1,1,1),
 				"nalin",
 				1
 		);

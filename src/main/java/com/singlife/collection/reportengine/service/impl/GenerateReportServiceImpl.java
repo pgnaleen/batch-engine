@@ -150,7 +150,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "nalin",
                 null,
                 "nalin",
-                1
+                1,
+                "tty",
+                "ccy"
         );
         collectionTransactionRepository.save(collectionTransaction);
 
