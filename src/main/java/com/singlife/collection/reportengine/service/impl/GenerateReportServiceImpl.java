@@ -35,16 +35,16 @@ public class GenerateReportServiceImpl implements GenerateReportService {
     private final CollectionTransactionRepository collectionTransactionRepository;
     private final ProductTransactionRepository productTransactionRepository;
     private final VendorInwardCreditNotificationRepository vendorInwardCreditNotificationRepository;
-    private final CustInfoRepository custInfoRepository;
+    private final CustomerInformationRepository customerInformationRepository;
     private final NotificationTemplateRepository notificationTemplateRepository;
     private final NotificationRepository notificationRepository;
 
-    public GenerateReportServiceImpl(CollectionTransactionRepository collectionTransactionRepository, ProductTransactionRepository productTransactionRepository, VendorInwardCreditNotificationRepository vendorInwardCreditNotificationRepository, CustInfoRepository custInfoRepository, NotificationTemplateRepository notificationTemplateRepository,
+    public GenerateReportServiceImpl(CollectionTransactionRepository collectionTransactionRepository, ProductTransactionRepository productTransactionRepository, VendorInwardCreditNotificationRepository vendorInwardCreditNotificationRepository, CustomerInformationRepository customerInformationRepository, NotificationTemplateRepository notificationTemplateRepository,
                                      NotificationRepository notificationRepository) {
         this.collectionTransactionRepository = collectionTransactionRepository;
         this.productTransactionRepository = productTransactionRepository;
         this.vendorInwardCreditNotificationRepository = vendorInwardCreditNotificationRepository;
-        this.custInfoRepository = custInfoRepository;
+        this.customerInformationRepository = customerInformationRepository;
         this.notificationTemplateRepository = notificationTemplateRepository;
         this.notificationRepository = notificationRepository;
     }
@@ -68,7 +68,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
 
         Map<Integer, ProductTransaction> collectionTransactionProductTransactionMap = new HashMap<>();
         productTransactionRepository.findAll().forEach(productTransaction -> {
-            collectionTransactionProductTransactionMap.put(productTransaction.getCollectionTrn().getId(), productTransaction);
+            collectionTransactionProductTransactionMap.put(productTransaction.getCollectionTrnId(), productTransaction);
         });
 
         List<Notification> notificationList = notificationRepository.findAll();
@@ -156,7 +156,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
 
         ProductTransaction productTransaction = new ProductTransaction(
                 0,
-                collectionTransaction,
+                collectionTransaction.getId(),
                 "policy_no",
                 "policy_cd",
                 "policy_type",
@@ -231,7 +231,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "nalin",
                 1
         );
-        custInfoRepository.save(customerInformation);
+        customerInformationRepository.save(customerInformation);
 
         NotificationTemplate notificationTemplate = new NotificationTemplate(
                 0,

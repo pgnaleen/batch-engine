@@ -27,7 +27,7 @@ class GenerateReportServiceImplTests {
 	@Mock
 	VendorInwardCreditNotificationRepository vendorInwardCreditNotificationRepository;
 	@Mock
-	CustInfoRepository custInfoRepository;
+	CustomerInformationRepository customerInformationRepository;
 	@Mock
 	NotificationTemplateRepository notificationTemplateRepository;
 	private GenerateReportServiceImpl generateReportService;
@@ -44,7 +44,7 @@ class GenerateReportServiceImplTests {
 				collectionTransactionRepository,
 				productTransactionRepository,
 				vendorInwardCreditNotificationRepository,
-				custInfoRepository,
+				customerInformationRepository,
 				notificationTemplateRepository,
 				notificationRepository);
 		this.generateReportService.setFolderPath(".");
@@ -77,7 +77,7 @@ class GenerateReportServiceImplTests {
 
 		return new ProductTransaction(
 				1,
-				collectionTransaction,
+				collectionTransaction.getId(),
 				"policy_no",
 				"policy_cd",
 				"policy_type",
