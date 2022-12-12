@@ -146,9 +146,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "rcn",
                 "rca",
                 "ma",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1,
                 "tty",
@@ -166,9 +166,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "pas_sys_id",
                 1,
                 "policy desc",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1
         );
@@ -215,9 +215,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "proprietaryData",
                 2,
                 2,
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1
         );
@@ -227,9 +227,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 0,
                 "dt",
                 "dn",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1
         );
@@ -241,9 +241,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "templateId",
                 "templateNm",
                 "temTy",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1
         );
@@ -257,9 +257,9 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 notificationTemplate,
                 "statusCd",
                 "statsCdV",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
-                null,
+                new Timestamp(90, 8, 28, 1,1,1,1),
                 "nalin",
                 1
         );
