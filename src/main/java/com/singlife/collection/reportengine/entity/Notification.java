@@ -43,7 +43,7 @@ public class Notification {
     private VendorInwardCreditNotification vendorInwardCreditNotification;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = CUST_INFO_ID, referencedColumnName = "id")
-    private CustInfo custInfo;
+    private CustomerInformation customerInformation;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = NOTIFICATION_TEMPLATE_ID, referencedColumnName = "id")
     private NotificationTemplate notificationTemplate;
@@ -74,11 +74,11 @@ public class Notification {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Notification that = (Notification) o;
-        return id == that.id && collectionTrn == that.collectionTrn && vendorInwardCreditNotification == that.vendorInwardCreditNotification && custInfo == that.custInfo && notificationTemplate == that.notificationTemplate && version == that.version && Objects.equals(statusCd, that.statusCd) && Objects.equals(statusCdVal, that.statusCdVal) && Objects.equals(createdDt, that.createdDt) && Objects.equals(createdBy, that.createdBy) && Objects.equals(updatedDt, that.updatedDt) && Objects.equals(updatedBy, that.updatedBy);
+        return id == that.id && collectionTrn == that.collectionTrn && vendorInwardCreditNotification == that.vendorInwardCreditNotification && customerInformation == that.customerInformation && notificationTemplate == that.notificationTemplate && version == that.version && Objects.equals(statusCd, that.statusCd) && Objects.equals(statusCdVal, that.statusCdVal) && Objects.equals(createdDt, that.createdDt) && Objects.equals(createdBy, that.createdBy) && Objects.equals(updatedDt, that.updatedDt) && Objects.equals(updatedBy, that.updatedBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, collectionTrn, vendorInwardCreditNotification, custInfo, notificationTemplate, statusCd, statusCdVal, createdDt, createdBy, updatedDt, updatedBy, version);
+        return Objects.hash(id, collectionTrn, vendorInwardCreditNotification, customerInformation, notificationTemplate, statusCd, statusCdVal, createdDt, createdBy, updatedDt, updatedBy, version);
     }
 }

@@ -90,7 +90,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
 
             cell = dataRow.createCell(3);
             cell.setCellStyle(dataCellStyle);
-            cell.setCellValue(notificationList.get(index).getCustInfo().getCustNm());
+            cell.setCellValue("Customer Name");
 
             cell = dataRow.createCell(4);
             cell.setCellStyle(dataCellStyle);
@@ -115,7 +115,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
 
             cell = dataRow.createCell(7);
             cell.setCellStyle(dataCellStyle);
-            cell.setCellValue(notificationList.get(index).getCustInfo().getPayerNm());
+            cell.setCellValue(notificationList.get(index).getVendorInwardCreditNotification().getSenderNm());
 
             cell = dataRow.createCell(8);
             cell.setCellStyle(dataCellStyle);
@@ -168,8 +168,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 "nalin",
                 null,
                 "nalin",
-                1,
-                "amount"
+                1
         );
         productTransactionRepository.save(productTransaction);
 
@@ -222,32 +221,17 @@ public class GenerateReportServiceImpl implements GenerateReportService {
         );
         vendorInwardCreditNotificationRepository.save(vendorInwardCreditNotification);
 
-        CustInfo custInfo = new CustInfo(
+        CustomerInformation customerInformation = new CustomerInformation(
                 0,
-                "docId",
-                "docType",
-                "docNo",
-                "custId",
-                "custCd",
-                "custNm",
-                "payerNm",
-                "firstNm",
-                "lastNm",
-                "address",
-                "mobileNo",
-                "emailId",
-                "mobdty",
-                "orgNm",
-                "city",
-                "statepcd",
-                "postalCd",
-                new Timestamp(90, 1, 1, 1, 1, 1, 1),
-                "createdBy",
-                new Timestamp(90, 1, 1, 1, 1, 1, 1),
-                "updatedBy",
+                "dt",
+                "dn",
+                null,
+                "nalin",
+                null,
+                "nalin",
                 1
         );
-        custInfoRepository.save(custInfo);
+        custInfoRepository.save(customerInformation);
 
         NotificationTemplate notificationTemplate = new NotificationTemplate(
                 0,
@@ -267,7 +251,7 @@ public class GenerateReportServiceImpl implements GenerateReportService {
                 0,
                 collectionTransaction,
                 vendorInwardCreditNotification,
-                custInfo,
+                customerInformation,
                 notificationTemplate,
                 "statusCd",
                 "statsCdV",

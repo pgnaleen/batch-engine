@@ -28,14 +28,14 @@ import java.util.Objects;
 @Table(name = ProductTransaction.TABLE)
 public class ProductTransaction {
     public static final String TABLE = Constants.TABLE_PREFIX + "product_transaction";
-    public static final String COL_COLLECTION_TRN_ID = "collection_trn_id";
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = COL_COLLECTION_TRN_ID, referencedColumnName = "id")
-    private CollectionTransaction collectionTrn;
+    @Basic
+    @Column(name = "collection_trn_id")
+    private int collectionTrnId;
     @Basic
     @Column(name = "prod_id")
     private String prodId;
@@ -72,20 +72,17 @@ public class ProductTransaction {
     @Basic
     @Column(name = "version")
     private int version;
-    @Basic
-    @Column(name = "prod_amt")
-    private String prodAmt;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductTransaction that = (ProductTransaction) o;
-        return id == that.id && collectionTrn == that.collectionTrn && prodCategory == that.prodCategory && version == that.version && Objects.equals(prodId, that.prodId) && Objects.equals(prodCd, that.prodCd) && Objects.equals(prodType, that.prodType) && Objects.equals(prodNm, that.prodNm) && Objects.equals(pasSysId, that.pasSysId) && Objects.equals(prodDesc, that.prodDesc) && Objects.equals(createdDt, that.createdDt) && Objects.equals(createdBy, that.createdBy) && Objects.equals(updatedDt, that.updatedDt) && Objects.equals(updatedBy, that.updatedBy) && Objects.equals(prodAmt, that.prodAmt);
+        return id == that.id && collectionTrnId == that.collectionTrnId && prodCategory == that.prodCategory && version == that.version && Objects.equals(prodId, that.prodId) && Objects.equals(prodCd, that.prodCd) && Objects.equals(prodType, that.prodType) && Objects.equals(prodNm, that.prodNm) && Objects.equals(pasSysId, that.pasSysId) && Objects.equals(prodDesc, that.prodDesc) && Objects.equals(createdDt, that.createdDt) && Objects.equals(createdBy, that.createdBy) && Objects.equals(updatedDt, that.updatedDt) && Objects.equals(updatedBy, that.updatedBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, collectionTrn, prodId, prodCd, prodType, prodNm, pasSysId, prodCategory, prodDesc, createdDt, createdBy, updatedDt, updatedBy, version, prodAmt);
+        return Objects.hash(id, collectionTrnId, prodId, prodCd, prodType, prodNm, pasSysId, prodCategory, prodDesc, createdDt, createdBy, updatedDt, updatedBy, version);
     }
 }

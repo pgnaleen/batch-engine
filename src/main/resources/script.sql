@@ -1,10 +1,11 @@
 CREATE DATABASE collection_SIT;
 use collection_SIT;
 
+
 -- collection_SIT.collection_transaction definition
 
 CREATE TABLE `collection_transaction` (
-                                          `id` int(11) NOT NULL auto_increment,
+                                          `id` int(11) NOT NULL AUTO_INCREMENT,
                                           `requester_ref_no` varchar(35) NOT NULL,
                                           `transaction_mode` varchar(20) NOT NULL,
                                           `collection_trn_ref_no` varchar(35) NOT NULL,
@@ -22,13 +23,15 @@ CREATE TABLE `collection_transaction` (
                                           `updated_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                           `updated_by` varchar(20) NOT NULL,
                                           `version` decimal(10,0) NOT NULL,
+                                          `transaction_type` varchar(15) DEFAULT NULL,
                                           PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='master table for the collection';
+
 
 -- collection_SIT.vendor_inward_credit_notification definition
 
 CREATE TABLE `vendor_inward_credit_notification` (
-                                                     `id` int(11) NOT NULL auto_increment,
+                                                     `id` int(11) NOT NULL AUTO_INCREMENT,
                                                      `collection_trn_id` int(11) NOT NULL,
                                                      `msg_id` varchar(35) NOT NULL,
                                                      `org_id` varchar(12) NOT NULL,
@@ -78,62 +81,47 @@ CREATE TABLE `vendor_inward_credit_notification` (
                                                      CONSTRAINT `vendor_inward_credit_notification_ibfk_1` FOREIGN KEY (`collection_trn_id`) REFERENCES `collection_transaction` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='master table for the collection';
 
+
 -- collection_SIT.product_transaction definition
 
 CREATE TABLE `product_transaction` (
-                                       `id` int(11) NOT NULL auto_increment,
+                                       `id` int(11) NOT NULL AUTO_INCREMENT,
                                        `collection_trn_id` int(11) NOT NULL,
-                                       `prod_id` varchar(20) NOT NULL COMMENT 'Ex: policy_no',
-                                       `prod_cd` varchar(20) NOT NULL COMMENT 'Ex:',
-                                       `prod_type` varchar(35) NOT NULL COMMENT 'Ex: Policies and Applications',
-                                       `prod_nm` varchar(35) NOT NULL COMMENT 'Ex: Singlife simple Term, Singlife Whole Life',
-                                       `pas_sys_id` varchar(35) NOT NULL COMMENT 'Ex: Life 400,PolicyAsia',
-                                       `prod_category` decimal(15,0) NOT NULL COMMENT 'Health,Life..etc',
+                                       `prod_id` varchar(20) NOT NULL,
+                                       `prod_cd` varchar(20) NOT NULL,
+                                       `prod_type` varchar(35) NOT NULL,
+                                       `prod_nm` varchar(35) NOT NULL,
+                                       `pas_sys_id` varchar(35) NOT NULL,
+                                       `prod_category` decimal(15,0) NOT NULL,
                                        `prod_desc` varchar(15) DEFAULT NULL,
                                        `created_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                        `created_by` varchar(20) NOT NULL,
                                        `updated_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                        `updated_by` varchar(20) NOT NULL,
                                        `version` decimal(10,0) NOT NULL,
-                                       `prod_amt` varchar(20) NOT NULL,
-                                       PRIMARY KEY (`id`),
-                                       KEY `collection_trn_id` (`collection_trn_id`),
-                                       CONSTRAINT `product_transaction_ibfk_1` FOREIGN KEY (`collection_trn_id`) REFERENCES `collection_transaction` (`id`)
+                                       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table for the products like policies/applications';
 
--- collection_SIT.cust_info definition
 
-CREATE TABLE `cust_info` (
-                             `id` int(11) NOT NULL auto_increment,
-                             `doc_id` varchar(20) NOT NULL,
-                             `doc_type` varchar(20) NOT NULL,
-                             `doc_no` varchar(20) NOT NULL,
-                             `cust_id` varchar(20) NOT NULL,
-                             `cust_cd` varchar(20) NOT NULL,
-                             `cust_nm` varchar(10) NOT NULL,
-                             `payer_nm` varchar(10) NOT NULL,
-                             `first_nm` varchar(10) NOT NULL,
-                             `last_nm` varchar(10) NOT NULL,
-                             `address` varchar(10) NOT NULL,
-                             `mobile_no` varchar(10) NOT NULL,
-                             `email_id` varchar(10) NOT NULL,
-                             `mobile_device_type` varchar(10) NOT NULL,
-                             `org_nm` varchar(10) NOT NULL,
-                             `city` varchar(10) NOT NULL,
-                             `state_provience_cd` varchar(10) NOT NULL,
-                             `postal_cd` varchar(10) NOT NULL,
-                             `created_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                             `created_by` varchar(20) NOT NULL,
-                             `updated_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                             `updated_by` varchar(20) NOT NULL,
-                             `version` decimal(10,0) NOT NULL,
-                             PRIMARY KEY (`id`)
+-- collection_SIT.customer_information definition
+
+CREATE TABLE `customer_information` (
+                                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                                        `doc_type` varchar(20) NOT NULL,
+                                        `doc_no` varchar(20) NOT NULL,
+                                        `created_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                        `created_by` varchar(20) NOT NULL,
+                                        `updated_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                        `updated_by` varchar(20) NOT NULL,
+                                        `version` decimal(10,0) NOT NULL,
+                                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table for the cust_info details';
+
 
 -- collection_SIT.notification_template definition
 
 CREATE TABLE `notification_template` (
-                                         `id` int(11) NOT NULL auto_increment,
+                                         `id` int(11) NOT NULL AUTO_INCREMENT,
                                          `notification_id` int(20) NOT NULL,
                                          `template_id` varchar(10) NOT NULL,
                                          `template_nm` varchar(10) NOT NULL,
@@ -146,10 +134,11 @@ CREATE TABLE `notification_template` (
                                          PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table for the notification templates like Email,SMS,Push Notifications';
 
+
 -- collection_SIT.notification definition
 
 CREATE TABLE `notification` (
-                                `id` int(11) NOT NULL auto_increment,
+                                `id` int(11) NOT NULL AUTO_INCREMENT,
                                 `collection_trn_id` int(11) NOT NULL,
                                 `vendor_inward_credit_notification_id` int(11) NOT NULL,
                                 `cust_info_id` int(11) NOT NULL,
@@ -168,6 +157,6 @@ CREATE TABLE `notification` (
                                 KEY `notification_template_id` (`notification_template_id`),
                                 CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`collection_trn_id`) REFERENCES `collection_transaction` (`id`),
                                 CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`vendor_inward_credit_notification_id`) REFERENCES `vendor_inward_credit_notification` (`id`),
-                                CONSTRAINT `notification_ibfk_3` FOREIGN KEY (`cust_info_id`) REFERENCES `cust_info` (`id`),
+                                CONSTRAINT `notification_ibfk_3` FOREIGN KEY (`cust_info_id`) REFERENCES `customer_information` (`id`),
                                 CONSTRAINT `notification_ibfk_4` FOREIGN KEY (`notification_template_id`) REFERENCES `notification_template` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table for the notifications like Email,SMS,Push Notifications';

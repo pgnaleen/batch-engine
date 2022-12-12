@@ -89,8 +89,7 @@ class GenerateReportServiceImplTests {
 				"nalin",
 				null,
 				"nalin",
-				1,
-				"amount"
+				1
 		);
 	}
 
@@ -143,29 +142,14 @@ class GenerateReportServiceImplTests {
 				1
 		);
 
-		CustInfo custInfo = new CustInfo(
+		CustomerInformation customerInformation = new CustomerInformation(
 				1,
-				"docId",
-				"docType",
-				"docNo",
-				"custId",
-				"custCd",
-				"custNm",
-				"payerNm",
-				"firstNm",
-				"lastNm",
-				"address",
-				"mobileNo",
-				"emailId",
-				"mobdty",
-				"orgNm",
-				"city",
-				"statepcd",
-				"postalCd",
-				new Timestamp(90, 1, 1, 1, 1, 1, 1),
-				"createdBy",
-				new Timestamp(90, 1, 1, 1, 1, 1, 1),
-				"updatedBy",
+				"dt",
+				"dn",
+				null,
+				"nalin",
+				null,
+				"nalin",
 				1
 		);
 
@@ -186,7 +170,7 @@ class GenerateReportServiceImplTests {
 				1,
 				collectionTransaction,
 				vendorInwardCreditNotification,
-				custInfo,
+				customerInformation,
 				notificationTemplate,
 				"statusCd",
 				"statsCdV",
