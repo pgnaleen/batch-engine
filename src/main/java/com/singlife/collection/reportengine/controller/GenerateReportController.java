@@ -4,7 +4,7 @@ import com.singlife.collection.reportengine.service.GenerateReportService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/sg/v1/report")
+@RequestMapping("/api/sg/v1/report-engine")
 public class GenerateReportController {
 
     private final GenerateReportService generateReportService;
@@ -13,10 +13,10 @@ public class GenerateReportController {
         this.generateReportService = generateReportService;
     }
 
-    @GetMapping
-    public String generateReport(@RequestParam String requestBody) {
+    @GetMapping("/customer/report")
+    public String generateReport() {
         generateReportService.generateReport();
 
-        return "";
+        return "{\"status\":\"200\",\"message\":\"report generated successfully.\"}";
     }
 }
